@@ -34,7 +34,8 @@
                             <th>Kategori</th>
                             <th>Merk</th>
                             <th>Harga Beli</th>
-                            <th>Harga Jual</th>
+                            <th>Harga Ecer</th>
+                            <th>Harga Pak</th>
                             <th>Diskon</th>
                             <th>Stok</th>
                             <th width="15%"><i class="fa fa-cog"></i></th>
@@ -70,7 +71,8 @@
                 {data: 'nama_kategori'},
                 {data: 'merk'},
                 {data: 'harga_beli'},
-                {data: 'harga_jual'},
+                {data: 'harga_ecer'},
+                {data: 'harga_pak'},
                 {data: 'diskon'},
                 {data: 'stok'},
                 {data: 'aksi', searchable: false, sortable: false},
@@ -121,7 +123,8 @@
                 $('#modal-form [name=id_kategori]').val(response.id_kategori);
                 $('#modal-form [name=merk]').val(response.merk);
                 $('#modal-form [name=harga_beli]').val(response.harga_beli);
-                $('#modal-form [name=harga_jual]').val(response.harga_jual);
+                $('#modal-form [name=harga_ecer]').val(response.harga_ecer);
+                $('#modal-form [name=harga_pak]').val(response.harga_pak);
                 $('#modal-form [name=diskon]').val(response.diskon);
                 $('#modal-form [name=stok]').val(response.stok);
             })
