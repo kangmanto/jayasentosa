@@ -35,8 +35,10 @@
                             <th>Merk</th>
                             <th>Harga Beli</th>
                             <th>Harga Jual</th>
+                            <th>Harga Jual per Pack</th>
                             <th>Diskon</th>
                             <th>Stok</th>
+                            <th>Pack</th>
                             <th width="15%"><i class="fa fa-cog"></i></th>
                         </thead>
                     </table>
@@ -71,8 +73,10 @@
                 {data: 'merk'},
                 {data: 'harga_beli'},
                 {data: 'harga_jual'},
+                {data: 'harga_jual_per_pack'},
                 {data: 'diskon'},
                 {data: 'stok'},
+                {data: 'package'},
                 {data: 'aksi', searchable: false, sortable: false},
             ]
         });
@@ -119,9 +123,11 @@
             .done((response) => {
                 $('#modal-form [name=nama_produk]').val(response.nama_produk);
                 $('#modal-form [name=id_kategori]').val(response.id_kategori);
+                // $('#modal-form [name=tipe_satuan_id]').val(response.tipe_satuan_id);
                 $('#modal-form [name=merk]').val(response.merk);
                 $('#modal-form [name=harga_beli]').val(response.harga_beli);
                 $('#modal-form [name=harga_jual]').val(response.harga_jual);
+                $('#modal-form [name=harga_jual_per_pack]').val(response.harga_jual_per_pack);
                 $('#modal-form [name=diskon]').val(response.diskon);
                 $('#modal-form [name=stok]').val(response.stok);
             })

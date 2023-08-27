@@ -50,6 +50,7 @@
                             <div class="input-group">
                                 <input type="hidden" name="id_penjualan" id="id_penjualan" value="{{ $id_penjualan }}">
                                 <input type="hidden" name="id_produk" id="id_produk">
+                                <input type="hidden" name="tipe_satuan" id="tipe_satuan">
                                 <input type="text" class="form-control" name="kode_produk" id="kode_produk">
                                 <span class="input-group-btn">
                                     <button onclick="tampilProduk()" class="btn btn-info btn-flat" type="button"><i class="fa fa-arrow-right"></i></button>
@@ -66,6 +67,7 @@
                         <th>Nama</th>
                         <th>Harga</th>
                         <th width="15%">Jumlah</th>
+                        <th>Satuan</th>
                         <th>Diskon</th>
                         <th>Subtotal</th>
                         <th width="15%"><i class="fa fa-cog"></i></th>
@@ -166,6 +168,7 @@
                 {data: 'nama_produk'},
                 {data: 'harga_jual'},
                 {data: 'jumlah'},
+                {data: 'satuan'},
                 {data: 'diskon'},
                 {data: 'subtotal'},
                 {data: 'aksi', searchable: false, sortable: false},
@@ -244,9 +247,10 @@
         $('#modal-produk').modal('hide');
     }
 
-    function pilihProduk(id, kode) {
+    function pilihProduk(id, kode, tipeSatuan) {
         $('#id_produk').val(id);
         $('#kode_produk').val(kode);
+        $('#tipe_satuan').val(tipeSatuan);
         hideProduk();
         tambahProduk();
     }

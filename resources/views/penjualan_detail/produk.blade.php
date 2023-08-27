@@ -12,7 +12,8 @@
                         <th width="5%">No</th>
                         <th>Kode</th>
                         <th>Nama</th>
-                        <th>Harga Jual</th>
+                        <th>Harga Ecer</th>
+                        <th>Harga Pack</th>
                         <th><i class="fa fa-cog"></i></th>
                     </thead>
                     <tbody>
@@ -22,11 +23,17 @@
                                 <td><span class="label label-success">{{ $item->kode_produk }}</span></td>
                                 <td>{{ $item->nama_produk }}</td>
                                 <td>{{ $item->harga_jual }}</td>
+                                <td>{{ $item->harga_jual_per_pack }}</td>
                                 <td>
                                     <a href="#" class="btn btn-primary btn-xs btn-flat"
-                                        onclick="pilihProduk('{{ $item->id_produk }}', '{{ $item->kode_produk }}')">
+                                        onclick="pilihProduk('{{ $item->id_produk }}', '{{ $item->kode_produk }}' , 'ecer')">
                                         <i class="fa fa-check-circle"></i>
-                                        Pilih
+                                        Ecer
+                                    </a>
+                                    <a href="#" class="btn btn-info btn-xs btn-flat"
+                                        onclick="pilihProduk('{{ $item->id_produk }}', '{{ $item->kode_produk }}', 'pack')">
+                                        <i class="fa fa-check-circle"></i>
+                                        Pack
                                     </a>
                                 </td>
                             </tr>

@@ -48,6 +48,7 @@ class PenjualanDetailController extends Controller
             $row['nama_produk'] = $item->produk['nama_produk'];
             $row['harga_jual']  = 'Rp. '. format_uang($item->harga_jual);
             $row['jumlah']      = '<input type="number" class="form-control input-sm quantity" data-id="'. $item->id_penjualan_detail .'" value="'. $item->jumlah .'">';
+            $row['satuan']      = $item->tipe_satuan;
             $row['diskon']      = $item->diskon . '%';
             $row['subtotal']    = 'Rp. '. format_uang($item->subtotal);
             $row['aksi']        = '<div class="btn-group">
@@ -65,6 +66,7 @@ class PenjualanDetailController extends Controller
             'nama_produk' => '',
             'harga_jual'  => '',
             'jumlah'      => '',
+            'satuan'      => '',
             'diskon'      => '',
             'subtotal'    => '',
             'aksi'        => '',
@@ -83,14 +85,34 @@ class PenjualanDetailController extends Controller
         if (! $produk) {
             return response()->json('Data gagal disimpan', 400);
         }
+        $harga_ecer = $produk->harga_jual;
+        $harga_pack = $produk->harga_jual_per_pack;
+        $jumlah = 1;
+        $diskon = $produk->diskon;
+        $tipe_satuan = $request->tipe_satuan;
+        $harga_jual = 0;
+        $subtotal = 0;
+        
+        switch ($tipe_satuan) {
+            case 'ecer':
+                $harga_jual = $harga_ecer;
+                $subtotal = $jumlah * $harga_ecer - ($diskon / 100 * $harga_ecer);
+                break;
+                
+                default:
+                $harga_jual = $harga_pack;
+                $subtotal = $jumlah * $harga_pack - ($diskon / 100 * $harga_pack);
+                break;
+        };
 
         $detail = new PenjualanDetail();
         $detail->id_penjualan = $request->id_penjualan;
         $detail->id_produk = $produk->id_produk;
-        $detail->harga_jual = $produk->harga_jual;
+        $detail->harga_jual = $harga_jual;
         $detail->jumlah = 1;
-        $detail->diskon = $produk->diskon;
-        $detail->subtotal = $produk->harga_jual - ($produk->diskon / 100 * $produk->harga_jual);;
+        $detail->tipe_satuan = $tipe_satuan;
+        $detail->diskon = $diskon;
+        $detail->subtotal = $subtotal;
         $detail->save();
 
         return response()->json('Data berhasil disimpan', 200);

@@ -16,11 +16,13 @@ class BuatProdukTable extends Migration
         Schema::create('produk', function (Blueprint $table) {
             $table->increments('id_produk');
             $table->unsignedInteger('id_kategori');
+            $table->integer('tipe_satuan_id');
             $table->string('nama_produk')->unique();
             $table->string('merk')->nullable();
             $table->integer('harga_beli');
             $table->tinyInteger('diskon')->default(0);
             $table->integer('harga_jual');
+            $table->integer('harga_jual_per_pack');
             $table->integer('stok');
             $table->timestamps();
         });

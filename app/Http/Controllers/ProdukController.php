@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kategori;
+use App\Models\TipeSatuan;
 use Illuminate\Http\Request;
 use App\Models\Produk;
 use PDF;
@@ -17,14 +18,19 @@ class ProdukController extends Controller
     public function index()
     {
         $kategori = Kategori::all()->pluck('nama_kategori', 'id_kategori');
+        $satuan = TipeSatuan::all()->pluck('package', 'id');
 
-        return view('produk.index', compact('kategori'));
+        return view('produk.index', compact('kategori', 'satuan'));
     }
 
     public function data()
     {
         $produk = Produk::leftJoin('kategori', 'kategori.id_kategori', 'produk.id_kategori')
-            ->select('produk.*', 'nama_kategori')
+            
+        
+            ->leftJoin('tipe_satuan', 'tipe_satuan.id' , 'produk.tipe_satuan_id' )
+        
+            ->select('produk.*', 'nama_kategori', 'package')
             // ->orderBy('kode_produk', 'asc')
             ->get();
 

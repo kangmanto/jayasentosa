@@ -18,6 +18,8 @@
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
+
+
                     <div class="form-group row">
                         <label for="id_kategori" class="col-lg-2 col-lg-offset-1 control-label">Kategori</label>
                         <div class="col-lg-6">
@@ -30,6 +32,20 @@
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
+
+                    <div class="form-group row">
+                        <label for="tipe_satuan_id" class="col-lg-2 col-lg-offset-1 control-label">Satuan</label>
+                        <div class="col-lg-6">
+                            <select name="tipe_satuan_id" id="tipe_satuan_id" class="form-control" required>
+                                <option value="">Pilih Satuan</option>
+                                @foreach ($satuan as $key => $item)
+                                <option value="{{ $key }}">{{ $item }}</option>
+                                @endforeach
+                            </select>
+                            <span class="help-block with-errors"></span>
+                        </div>
+                    </div>
+
                     <div class="form-group row">
                         <label for="merk" class="col-lg-2 col-lg-offset-1 control-label">Merk</label>
                         <div class="col-lg-6">
@@ -48,6 +64,13 @@
                         <label for="harga_jual" class="col-lg-2 col-lg-offset-1 control-label">Harga Jual</label>
                         <div class="col-lg-6">
                             <input type="number" name="harga_jual" id="harga_jual" class="form-control" required>
+                            <span class="help-block with-errors"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="harga_jual_per_pack" class="col-lg-2 col-lg-offset-1 control-label">Harga Jual per Pack</label>
+                        <div class="col-lg-6">
+                            <input type="number" name="harga_jual_per_pack" id="harga_jual_per_pack" class="form-control" required>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
