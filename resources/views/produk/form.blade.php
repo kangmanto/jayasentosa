@@ -61,16 +61,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="harga_ecer" class="col-lg-2 col-lg-offset-1 control-label">Harga Ecer</label>
+                        <label for="harga_jual" class="col-lg-2 col-lg-offset-1 control-label">Harga Ecer</label>
                         <div class="col-lg-6">
-                            <input type="number" name="harga_ecer" id="harga_ecer" class="form-control" required>
-                            <span class="help-block with-errors"></span>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="harga_pak" class="col-lg-2 col-lg-offset-1 control-label">Harga Pak</label>
-                        <div class="col-lg-6">
-                            <input type="number" name="harga_pak" id="harga_pak" class="form-control" required>
+                            <input type="number" name="harga_jual" id="harga_jual" class="form-control" required>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
