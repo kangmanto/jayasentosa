@@ -26,12 +26,8 @@ class ProdukController extends Controller
     public function data()
     {
         $produk = Produk::leftJoin('kategori', 'kategori.id_kategori', 'produk.id_kategori')
-            
-        
             ->leftJoin('tipe_satuan', 'tipe_satuan.id' , 'produk.tipe_satuan_id' )
-        
             ->select('produk.*', 'nama_kategori', 'package')
-            // ->orderBy('kode_produk', 'asc')
             ->get();
 
         return datatables()
