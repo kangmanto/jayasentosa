@@ -34,7 +34,10 @@ Aplikasi POS atau point of sales adalah aplikasi yang digunakan untuk mengelola 
 ```bash
 git clone https://github.com/kangmanto/jayasentosa.git
 ```
+jika menggunakan xampp temukan ;extension=zip ubah menjadi extension=zip 
+
 ### Setup Aplikasi
+
 
 ```bash
 composer install
