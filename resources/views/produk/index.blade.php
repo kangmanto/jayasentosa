@@ -37,7 +37,7 @@
                             <th>Harga Jual</th>
                             <th>Harga Jual per Pack</th>
                             <th>Diskon</th>
-                            <th>Stok</th>
+                            <th>Stok satuan</th>
                             <th>Pack</th>
                             <th width="15%"><i class="fa fa-cog"></i></th>
                         </thead>
@@ -107,7 +107,7 @@
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('post');
-        $('#modal-form [name=nama_produk]').focus();
+        $('#modal-form [name=kode_produk]').focus();
     }
 
     function editForm(url) {
@@ -117,10 +117,11 @@
         $('#modal-form form')[0].reset();
         $('#modal-form form').attr('action', url);
         $('#modal-form [name=_method]').val('put');
-        $('#modal-form [name=nama_produk]').focus();
+        $('#modal-form [name=kode_produk]').focus();
 
         $.get(url)
             .done((response) => {
+                $('#modal-form [name=kode_produk]').val(response.kode_produk);
                 $('#modal-form [name=nama_produk]').val(response.nama_produk);
                 $('#modal-form [name=id_kategori]').val(response.id_kategori);
                 $('#modal-form [name=tipe_satuan_id]').val(response.tipe_satuan_id);
