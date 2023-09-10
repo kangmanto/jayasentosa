@@ -41,17 +41,21 @@
     <div class="col-lg-12">
         <div class="box">
             <div class="box-body">
+                <form>
+                    <label >scan barcode</label>
+                    <input name="scan_produk" type="text" autofocus>
+                </form>
                     
                 <form class="form-produk">
                     @csrf
                     <div class="form-group row">
-                        <label for="kode_produk" class="col-lg-2">Kode Produk</label>
+                        <label class="col-lg-2">Plilih Manual</label>
                         <div class="col-lg-5">
                             <div class="input-group">
                                 <input type="hidden" name="id_penjualan" id="id_penjualan" value="{{ $id_penjualan }}">
                                 <input type="hidden" name="id_produk" id="id_produk">
                                 <input type="hidden" name="tipe_satuan" id="tipe_satuan">
-                                <input type="text" class="form-control" name="kode_produk" id="kode_produk" autofocus>
+                                <input type="hidden" class="form-control" name="kode_produk" id="kode_produk">
                                 <span class="input-group-btn">
                                     <button onclick="tampilProduk()" class="btn btn-info btn-flat" type="button"><i class="fa fa-arrow-right"></i></button>
                                 </span>
@@ -89,13 +93,13 @@
                             <input type="hidden" name="id_member" id="id_member" value="{{ $memberSelected->id_member }}">
 
                             <div class="form-group row">
-                                <label for="totalrp" class="col-lg-2 control-label">Total</label>
+                                <label class="col-lg-2 control-label">Total</label>
                                 <div class="col-lg-8">
                                     <input type="text" id="totalrp" class="form-control" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="kode_member" class="col-lg-2 control-label">Member</label>
+                                <label class="col-lg-2 control-label">Member</label>
                                 <div class="col-lg-8">
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="kode_member" value="{{ $memberSelected->kode_member }}">
@@ -106,7 +110,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="diskon" class="col-lg-2 control-label">Diskon</label>
+                                <label  class="col-lg-2 control-label">Diskon</label>
                                 <div class="col-lg-8">
                                     <input type="number" name="diskon" id="diskon" class="form-control" 
                                         value="{{ ! empty($memberSelected->id_member) ? $diskon : 0 }}" 
@@ -114,19 +118,19 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="bayar" class="col-lg-2 control-label">Bayar</label>
+                                <label  class="col-lg-2 control-label">Bayar</label>
                                 <div class="col-lg-8">
                                     <input type="text" id="bayarrp" class="form-control" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="diterima" class="col-lg-2 control-label">Diterima</label>
+                                <label  class="col-lg-2 control-label">Diterima</label>
                                 <div class="col-lg-8">
                                     <input type="number" id="diterima" class="form-control" name="diterima" value="{{ $penjualan->diterima ?? 0 }}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="kembali" class="col-lg-2 control-label">Kembali</label>
+                                <label  class="col-lg-2 control-label">Kembali</label>
                                 <div class="col-lg-8">
                                     <input type="text" id="kembali" name="kembali" class="form-control" value="0" readonly>
                                 </div>
