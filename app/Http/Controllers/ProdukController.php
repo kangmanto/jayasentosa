@@ -127,6 +127,8 @@ class ProdukController extends Controller
     public function update(Request $request, $id)
     {
         $produk = Produk::find($id);
+        $quantity = TipeSatuan::where('id', $request->tipe_satuan_id )->pluck('quantity')->first() ;
+        $request['stok'] *= $quantity;
         $produk->update($request->all());
 
         return response()->json('Data berhasil disimpan', 200);

@@ -123,7 +123,7 @@
             .done((response) => {
                 $('#modal-form [name=nama_produk]').val(response.nama_produk);
                 $('#modal-form [name=id_kategori]').val(response.id_kategori);
-                // $('#modal-form [name=tipe_satuan_id]').val(response.tipe_satuan_id);
+                $('#modal-form [name=tipe_satuan_id]').val(response.tipe_satuan_id);
                 $('#modal-form [name=merk]').val(response.merk);
                 $('#modal-form [name=harga_beli]').val(response.harga_beli);
                 $('#modal-form [name=harga_jual]').val(response.harga_jual);
