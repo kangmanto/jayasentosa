@@ -30,11 +30,17 @@ Aplikasi POS atau point of sales adalah aplikasi yang digunakan untuk mengelola 
 - Grafik ChartJS pada Dashboard
 
 ## Instalasi
-#### Via Git
 ```bash
 git clone https://github.com/kangmanto/jayasentosa.git
 ```
-jika menggunakan xampp temukan ;extension=zip ubah menjadi extension=zip 
+jika menggunakan xampp temukan 
+
+```bash
+;extension=zip
+ubah menjadi
+ 
+```bash
+extension=zip 
 
 ### Setup Aplikasi
 
@@ -54,7 +60,7 @@ Migrate database
 ```bash
 php artisan migrate
 ```
-Seeder table User, Pengaturan
+Menjalankan Seeder
 ```bash
 php artisan db:seed
 ```
