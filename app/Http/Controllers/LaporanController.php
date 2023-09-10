@@ -48,8 +48,10 @@ class LaporanController extends Controller
             $row['pembelian'] = format_uang($total_pembelian);
             $row['pengeluaran'] = format_uang($total_pengeluaran);
             $row['pendapatan'] = format_uang($pendapatan);
+            if ($row['pendapatan'] <> 0) {
+                $data[] = $row;
+            }
 
-            $data[] = $row;
         }
 
         $data[] = [
