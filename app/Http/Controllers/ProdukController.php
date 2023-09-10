@@ -83,8 +83,10 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
+        $quantity = TipeSatuan::where('id', $request->tipe_satuan_id )->pluck('quantity')->first() ;
         $produk = Produk::latest()->first() ?? new Produk();
         $request['kode_produk'] = 'P'. tambah_nol_didepan((int)$produk->id_produk +1, 6);
+        $request['stok'] *= $quantity;
 
         $produk = Produk::create($request->all());
 
