@@ -75,6 +75,12 @@
                 <a href="{{ route('laporan.index') }}">
                     <i class="fa fa-file-pdf-o"></i> <span>Laporan</span>
                 </a>
+                <a href="#">
+                    <i class="fa fa-file-pdf-o"></i> <span>Lap Harian </span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-file-pdf-o"></i> <span>Analisis</span>
+                </a>
             </li>
             <li class="header">SYSTEM</li>
             <li>

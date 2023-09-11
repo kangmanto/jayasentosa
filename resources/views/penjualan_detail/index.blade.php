@@ -41,23 +41,23 @@
     <div class="col-lg-12">
         <div class="box">
             <div class="box-body">
-                <form>
+                <form class="form-sacan-produk">
                     <label >scan barcode</label>
-                    <input name="scan_produk" type="text" autofocus>
+                    <input name="scan_produk" type="text" id="scan_produk" autofocus>
                 </form>
                     
                 <form class="form-produk">
                     @csrf
                     <div class="form-group row">
-                        <label class="col-lg-2">Plilih Manual</label>
-                        <div class="col-lg-5">
+                        <label class="col-lg-2"></label>
+                        <div class="col-lg-8">
                             <div class="input-group">
                                 <input type="hidden" name="id_penjualan" id="id_penjualan" value="{{ $id_penjualan }}">
                                 <input type="hidden" name="id_produk" id="id_produk">
                                 <input type="hidden" name="tipe_satuan" id="tipe_satuan">
                                 <input type="hidden" class="form-control" name="kode_produk" id="kode_produk">
                                 <span class="input-group-btn">
-                                    <button onclick="tampilProduk()" class="btn btn-info btn-flat" type="button"><i class="fa fa-arrow-right"></i></button>
+                                    <button onclick="tampilProduk()" class="btn btn-info btn-flat" type="button"> Plilih Manual </button>
                                 </span>
                             </div>
                         </div>
@@ -82,6 +82,16 @@
                     <div class="col-lg-8">
                         <div class="tampil-bayar bg-primary"></div>
                         <div class="tampil-terbilang"></div>
+                        <div class="btn-group">
+                        <button type="button" class="btn btn-warning">Rp. 5.000</button>
+                        <button type="button" class="btn btn-warning">Rp. 10.000</button>
+                        <button type="button" class="btn btn-success">Rp. 20.000</button>
+                        </div>
+                        <div class="btn-group">
+                        <button type="button" class="btn btn-info">Rp. 50.000</button>
+                        <button type="button" class="btn btn-danger">Rp. 100.000</button>
+                        <button type="button" class="btn btn-danger">Rp. 200.000</button>
+                        </div>
                     </div>
                     <div class="col-lg-4">
                         <form action="{{ route('transaksi.simpan') }}" class="form-penjualan" method="post">
@@ -96,25 +106,6 @@
                                 <label class="col-lg-2 control-label">Total</label>
                                 <div class="col-lg-8">
                                     <input type="text" id="totalrp" class="form-control" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-2 control-label">Member</label>
-                                <div class="col-lg-8">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="kode_member" value="{{ $memberSelected->kode_member }}">
-                                        <span class="input-group-btn">
-                                            <button onclick="tampilMember()" class="btn btn-info btn-flat" type="button"><i class="fa fa-arrow-right"></i></button>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label  class="col-lg-2 control-label">Diskon</label>
-                                <div class="col-lg-8">
-                                    <input type="number" name="diskon" id="diskon" class="form-control" 
-                                        value="{{ ! empty($memberSelected->id_member) ? $diskon : 0 }}" 
-                                        readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -133,6 +124,26 @@
                                 <label  class="col-lg-2 control-label">Kembali</label>
                                 <div class="col-lg-8">
                                     <input type="text" id="kembali" name="kembali" class="form-control" value="0" readonly>
+                                </div>
+                            </div>
+                            ---------------------------
+                            <div class="form-group row">
+                                <label class="col-lg-2 control-label">Member</label>
+                                <div class="col-lg-8">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="kode_member" value="{{ $memberSelected->kode_member }}">
+                                        <span class="input-group-btn">
+                                            <button onclick="tampilMember()" class="btn btn-info btn-flat" type="button"><i class="fa fa-arrow-right"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label  class="col-lg-2 control-label">Diskon</label>
+                                <div class="col-lg-8">
+                                    <input type="number" name="diskon" id="diskon" class="form-control" 
+                                        value="{{ ! empty($memberSelected->id_member) ? $diskon : 0 }}" 
+                                        readonly>
                                 </div>
                             </div>
                         </form>
@@ -154,8 +165,17 @@
 @push('scripts')
 <script>
     let table, table2;
-
+    
     $(function () {
+        $('#scan_produk').on('change', function (e){
+           var barcode = e;
+            return barcode;
+
+
+
+        });       
+        
+        
         $('body').addClass('sidebar-collapse');
 
         table = $('.table-penjualan').DataTable({
