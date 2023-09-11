@@ -41,7 +41,7 @@
     <div class="col-lg-12">
         <div class="box">
             <div class="box-body">
-                <form class="form-sacan-produk">
+                <form class="form-scan-produk">
                     <label >scan barcode</label>
                     <input name="scan_produk" type="text" id="scan_produk" autofocus>
                 </form>
@@ -57,7 +57,7 @@
                                 <input type="hidden" name="tipe_satuan" id="tipe_satuan">
                                 <input type="hidden" class="form-control" name="kode_produk" id="kode_produk">
                                 <span class="input-group-btn">
-                                    <button onclick="tampilProduk()" class="btn btn-info btn-flat" type="button"> Plilih Manual </button>
+                                    <button onclick="tampilProduk()" class="btn btn-info btn-flat" type="button"> MANUAL atau PEMBELIAN PACK  </button>
                                 </span>
                             </div>
                         </div>
@@ -167,9 +167,23 @@
     let table, table2;
     
     $(function () {
-        $('#scan_produk').on('change', function (e){
-           var barcode = e;
-            return barcode;
+        $('#scan_produk').focus().select();
+        $('#scan_produk').on('change', function (){
+            $('#id_produk').val(22);
+            $('#kode_produk').val(8991389291085);
+            $('#tipe_satuan').val('ecer');           
+            
+            $.post('{{ route('transaksi.store') }}', $('.form-produk').serialize())
+            .done(response => {
+                $('#scan_produk').focus();
+                table.ajax.reload(() => loadForm($('#diskon').val()));
+                $(this).focus();
+            })
+            .fail(errors => {
+                alert('Tidak dapat menyimpan data');
+                return;
+            });       
+        
 
 
 
@@ -250,11 +264,12 @@
 
         $('#diterima').on('input', function () {
             if ($(this).val() == "") {
-                $(this).val(0).select();
+                $(this).val(0);
+                // $(this).val(0).select();
             }
 
             loadForm($('#diskon').val(), $(this).val());
-        }).focus(function () {
+        }).focus()(function () {
             $(this).select();
         });
 
@@ -282,7 +297,7 @@
     function tambahProduk() {
         $.post('{{ route('transaksi.store') }}', $('.form-produk').serialize())
             .done(response => {
-                $('#kode_produk').focus();
+                $('#scan_produk').focus();
                 table.ajax.reload(() => loadForm($('#diskon').val()));
             })
             .fail(errors => {
@@ -300,7 +315,8 @@
         $('#kode_member').val(kode);
         $('#diskon').val('{{ $diskon }}');
         loadForm($('#diskon').val());
-        $('#diterima').val(0).focus().select();
+        $('#diterima').val(0);
+        // $('#diterima').val(0).focus().select();
         hideMember();
     }
 

@@ -25,7 +25,7 @@
                                 <td>{{ $item->harga_jual }}</td>
                                 <td>{{ $item->harga_jual_per_pack }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary btn-xs btn-flat"
+                                    <a name="coba" href="#" class="btn btn-primary btn-xs btn-flat"
                                         onclick="pilihProduk('{{ $item->id_produk }}', '{{ $item->kode_produk }}' , 'ecer')">
                                         <i class="fa fa-check-circle"></i>
                                         Ecer

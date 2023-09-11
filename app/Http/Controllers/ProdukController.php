@@ -81,11 +81,23 @@ class ProdukController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    function getKodeProduk($kodeProduk, $request) {
+  if (is_null($kodeProduk)) {
+    // kode produk tidak ada, generate kode produk baru
+    $kodeProduk = generateKodeProduk();
+  } else {
+    // kode produk ada, ambil dari $request
+    $kodeProduk = $request['kode_produk'];
+  }
+
+  return $kodeProduk;
+}
     public function store(Request $request)
     {
+        
         $quantity = TipeSatuan::where('id', $request->tipe_satuan_id )->pluck('quantity')->first() ;
-        $produk = Produk::latest()->first() ?? new Produk();
-        $request['kode_produk'] = 'P'. tambah_nol_didepan((int)$produk->id_produk +1, 6);
+        $produk = Produk::latest()->first() ?? new Produk();       
+        // $request['kode_produk'] = 'P'. tambah_nol_didepan((int)$produk->id_produk +1, 6);
         $request['stok'] *= $quantity;
 
         $produk = Produk::create($request->all());

@@ -94,14 +94,14 @@ class PenjualanDetailController extends Controller
         $subtotal = 0;
         
         switch ($tipe_satuan) {
-            case 'ecer':
-                $harga_jual = $harga_ecer;
-                $subtotal = $jumlah * $harga_ecer - ($diskon / 100 * $harga_ecer);
+            case 'pack':
+                $harga_jual = $harga_pack;
+                $subtotal = $jumlah * $harga_pack - ($diskon / 100 * $harga_pack);
                 break;
                 
                 default:
-                $harga_jual = $harga_pack;
-                $subtotal = $jumlah * $harga_pack - ($diskon / 100 * $harga_pack);
+                $harga_jual = $harga_ecer;
+                $subtotal = $jumlah * $harga_ecer - ($diskon / 100 * $harga_ecer);
                 break;
         };
 
