@@ -83,14 +83,14 @@
                         <div class="tampil-bayar bg-primary"></div>
                         <div class="tampil-terbilang"></div>
                         <div class="btn-group">
-                        <button type="button" class="btn btn-warning">Rp. 5.000</button>
-                        <button type="button" class="btn btn-warning">Rp. 10.000</button>
-                        <button type="button" class="btn btn-success">Rp. 20.000</button>
+                        <button type="button" class="btn btn-warning" onclick="diterima(5000)">Rp. 5.000</button>
+                        <button type="button" class="btn btn-warning" onclick="diterima(10000)">Rp. 10.000</button>
+                        <button type="button" class="btn btn-success" onclick="diterima(20000)">Rp. 20.000</button>
                         </div>
                         <div class="btn-group">
-                        <button type="button" class="btn btn-info">Rp. 50.000</button>
-                        <button type="button" class="btn btn-danger">Rp. 100.000</button>
-                        <button type="button" class="btn btn-danger">Rp. 200.000</button>
+                        <button type="button" class="btn btn-info" onclick="diterima(50000)">Rp. 50.000</button>
+                        <button type="button" class="btn btn-danger" onclick="diterima(100000)">Rp. 100.000</button>
+                        <button type="button" class="btn btn-danger" onclick="diterima(200000)">Rp. 200.000</button>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -278,6 +278,11 @@
         });
     });
 
+    function diterima(params) {
+        // console.log(params);
+        $('#diterima').val(params);
+                loadForm($('#diskon').val(), params);
+            }
     function tampilProduk() {
         $('#modal-produk').modal('show');
     }
@@ -362,6 +367,8 @@
                 alert('Tidak dapat menampilkan data');
                 return;
             })
+
+            
     }
 </script>
 @endpush
