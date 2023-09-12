@@ -43,7 +43,7 @@
             <div class="box-body">
                 <form class="form-scan-produk">
                     <label >scan barcode</label>
-                    <input name="scan_produk" type="text" id="scan_produk" autofocus>
+                    <input name="scan_produk" type="text" id="scan_produk" autocomplete="off">
                 </form>
                     
                 <form class="form-produk">
