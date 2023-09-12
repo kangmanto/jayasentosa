@@ -90,7 +90,12 @@
                         <div class="btn-group">
                         <button type="button" class="btn btn-info" onclick="diterima(50000)">Rp. 50.000</button>
                         <button type="button" class="btn btn-danger" onclick="diterima(100000)">Rp. 100.000</button>
-                        <button type="button" class="btn btn-danger" onclick="diterima(200000)">Rp. 200.000</button>
+                        <button type="button" class="btn btn-danger" onclick="diterima(150000)">Rp. 150.000</button>
+                        </div>
+                        <div class="btn-group">
+                        <button type="button" class="btn btn-info" onclick="diterima(200000)">Rp. 200.000</button>
+                        <button type="button" class="btn btn-danger" onclick="diterima(250000)">Rp. 250.000</button>
+                        <button type="button" class="btn btn-danger" onclick="diterima(300000)">Rp. 300.000</button>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -269,8 +274,6 @@
             }
 
             loadForm($('#diskon').val(), $(this).val());
-        }).focus()(function () {
-            $(this).select();
         });
 
         $('.btn-simpan').on('click', function () {
