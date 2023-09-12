@@ -85,17 +85,22 @@
                         <div class="btn-group">
                         <button type="button" class="btn btn-warning" onclick="diterima(5000)">Rp. 5.000</button>
                         <button type="button" class="btn btn-warning" onclick="diterima(10000)">Rp. 10.000</button>
-                        <button type="button" class="btn btn-success" onclick="diterima(20000)">Rp. 20.000</button>
+                        <button type="button" class="btn btn-warning" onclick="diterima(20000)">Rp. 20.000</button>
                         </div>
                         <div class="btn-group">
-                        <button type="button" class="btn btn-info" onclick="diterima(50000)">Rp. 50.000</button>
-                        <button type="button" class="btn btn-danger" onclick="diterima(100000)">Rp. 100.000</button>
-                        <button type="button" class="btn btn-danger" onclick="diterima(150000)">Rp. 150.000</button>
+                        <button type="button" class="btn btn-success" onclick="diterima(50000)">Rp. 50.000</button>
+                        <button type="button" class="btn btn-success" onclick="diterima(100000)">Rp. 100.000</button>
+                        <button type="button" class="btn btn-success" onclick="diterima(150000)">Rp. 150.000</button>
                         </div>
                         <div class="btn-group">
                         <button type="button" class="btn btn-info" onclick="diterima(200000)">Rp. 200.000</button>
-                        <button type="button" class="btn btn-danger" onclick="diterima(250000)">Rp. 250.000</button>
-                        <button type="button" class="btn btn-danger" onclick="diterima(300000)">Rp. 300.000</button>
+                        <button type="button" class="btn btn-info" onclick="diterima(250000)">Rp. 250.000</button>
+                        <button type="button" class="btn btn-info" onclick="diterima(300000)">Rp. 300.000</button>
+                        </div>
+                        <div class="btn-group">
+                        <button type="button" class="btn btn-danger" onclick="diterima(350000)">Rp. 350.000</button>
+                        <button type="button" class="btn btn-danger" onclick="diterima(400000)">Rp. 400.000</button>
+                        <button type="button" class="btn btn-danger" onclick="diterima(450000)">Rp. 450.000</button>
                         </div>
                     </div>
                     <div class="col-lg-4">
