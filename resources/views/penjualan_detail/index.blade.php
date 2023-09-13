@@ -299,8 +299,7 @@
         $('#modal-produk').modal('hide');
     }
 
-    function pilihProduk(id, kode, tipeSatuan) {
-        $('#id_produk').val(id);
+    function pilihProduk(kode, tipeSatuan) {
         $('#kode_produk').val(kode);
         $('#tipe_satuan').val(tipeSatuan);
         hideProduk();
