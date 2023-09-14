@@ -81,7 +81,7 @@ class PenjualanDetailController extends Controller
 
     public function store(Request $request)
     {
-        $produk = Produk::where('id_produk', $request->id_produk)->first();
+        $produk = Produk::where('kode_produk', $request->kode_produk)->first();
         if (! $produk) {
             return response()->json('Data gagal disimpan', 400);
         }
