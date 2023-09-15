@@ -55,7 +55,7 @@
                                 <input type="hidden" name="id_penjualan" id="id_penjualan" value="{{ $id_penjualan }}">
                                 <input type="hidden" name="id_produk" id="id_produk">
                                 <input type="hidden" name="tipe_satuan" id="tipe_satuan">
-                                <input type="hidden" class="form-control" name="kode_produk" id="kode_produk">
+                                <input type="hidden" name="kode_produk" id="kode_produk">
                                 <span class="input-group-btn">
                                     <button onclick="tampilProduk()" class="btn btn-info btn-flat" type="button"> MANUAL atau PEMBELIAN PACK  </button>
                                 </span>
@@ -127,7 +127,7 @@
                             <div class="form-group row">
                                 <label  class="col-lg-2 control-label">Diterima</label>
                                 <div class="col-lg-8">
-                                    <input type="number" id="diterima" class="form-control" name="diterima" value="{{ $penjualan->diterima ?? 0 }}">
+                                    <input type="number" id="diterima" name="diterima" value="{{ $penjualan->diterima ?? 0 }}">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -299,8 +299,7 @@
         $('#modal-produk').modal('hide');
     }
 
-    function pilihProduk(id, kode, tipeSatuan) {
-        $('#id_produk').val(id);
+    function pilihProduk(kode, tipeSatuan) {
         $('#kode_produk').val(kode);
         $('#tipe_satuan').val(tipeSatuan);
         hideProduk();
